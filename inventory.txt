@@ -1,0 +1,8 @@
+Telecaster, 499.99, 4
+Les Paul, 999.99, 7
+Gristlemaster, 1399.99, 3
+Stratocaster, 499.99, 8
+Firebird V, 899.99, 2
+Jazzmaster, 1499.99, 1
+Gristlemaster, 10.0, 1
+Telecaster, 199.99, 3
