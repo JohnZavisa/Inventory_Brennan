@@ -43,7 +43,7 @@ class Category:
 #   -[x] `list_low_stock_products(self, threshold)`: Returns a list of products with quantity below the given threshold
 
 class InventoryManager:
-    def __init__(self, filename="InventoryManager/inventory.txt"):
+    def __init__(self, filename="inventory.txt"):
         self.filename = filename
         self.Inventory = self.load_inventory()
         #self.Inventory = [] # Empty list to hold Inventory
