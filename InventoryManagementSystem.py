@@ -1,12 +1,10 @@
 from pathlib import Path
 import tempfile
 import shutil
-
 import logging
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
 
 # Inventory Management System
 
@@ -72,7 +70,7 @@ class InventoryManager:
                 for line in file:
                     inventory.append(Product.from_string(line))
         except FileNotFoundError:
-            print(f"{self.filename} not found.")
+            logger.info(f'{self.filename} not found.')
         return inventory
     
     def save_inventory(self):
@@ -107,9 +105,9 @@ class InventoryManager:
             if product.name == product_name:
                 self.inventory.remove(product)
                 self.save_inventory()
-                print(f"Removed {product_name}")
+                logger.info(f"Removed: {product_name}")
                 return
-        print(f"Product {product_name} not found in inventory.")
+        logger.info(f"Product {product_name} not found in inventory.")
 
     def update_quantity(self, product_name: str, new_quantity: int) -> None:
         """Updates the quantity of a product in inventory.
@@ -125,9 +123,9 @@ class InventoryManager:
             if product.name == product_name:
                 product.quantity = new_quantity
                 self.save_inventory()
-                print(f"Product {product.name} has been updated to new quantity:  {product.quantity} ")
+                logger.info(f"Product {product.name} has been updated to new quantity:  {product.quantity} ")
                 return
-        print(f"Product {product_name} not found.")
+        logger.info(f"Product {product_name} not found.")
 
     def get_total_inventory_value(self):
         return sum(product.get_value() for product in self.inventory)
