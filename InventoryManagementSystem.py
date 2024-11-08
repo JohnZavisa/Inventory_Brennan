@@ -70,7 +70,7 @@ class InventoryManager:
                 for line in file:
                     inventory.append(Product.from_string(line))
         except FileNotFoundError:
-            logger.info(f'{self.filename} not found.')
+            logger.error(f'{self.filename} not found.')
         return inventory
     
     def save_inventory(self):
