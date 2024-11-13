@@ -3,3 +3,4 @@ Les Paul, 999.99, 7
 Stratocaster, 499.99, 8
 Jazzmaster, 1499.99, 1
 Gristlemaster, 1499.99, 2
+Triplecaster, 3333.99, 3
