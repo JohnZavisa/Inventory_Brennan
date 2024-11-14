@@ -1,4 +1,4 @@
-Telecaster, 499.99, 4
+Telecaster, 499.99, 6
 Les Paul, 999.99, 7
 Stratocaster, 499.99, 8
 Jazzmaster, 1499.99, 1

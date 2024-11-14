@@ -2,6 +2,11 @@ from pathlib import Path
 from models.product import Product
 from managers.inventory_manager import InventoryManager
 
+# Define root directory
+root_dir = Path(__file__).resolve().parent.parent
+# Define inventory file path inside "db" folder
+inventory = root_dir / "db" / "inventory.txt"
+
 def main():
     """Main function to run Inventory Manager application.
     
@@ -22,7 +27,7 @@ def main():
     Raises:
         ValueError: If invalid input is received for price or quantity.
     """
-    manager = InventoryManager()
+    manager = InventoryManager(filename=str(inventory))
 
     while True:
         print("\n--- Inventory Manager ---")

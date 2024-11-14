@@ -15,8 +15,8 @@ class InventoryManager:
         filename (str): Path to inventory file
         inventory (List[Product]): List of products in inventory
     """
-    def __init__(self, filename="inventory.txt"):
-        """Initializes the InventoryManager with an optional filename for inventory persistence.
+    def __init__(self, filename: str):
+        """Initializes the InventoryManager with a filename for inventory persistence.
         
         Args:
             filename (str): Path to the file for loading and saving inventory.
