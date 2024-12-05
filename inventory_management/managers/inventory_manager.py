@@ -76,6 +76,7 @@ class InventoryManager:
             logger.info(f'Adding product: {product.name}')
             if product.name == existing_product.name:
                 logger.info(f"{product.name} already exists. Please enter a new product, or select '3' to update quantity.")
+                return
         self.inventory.append(product)
         self.save_inventory()
         logger.info(f"Product: {product.name} (x{product.quantity}) has been added at ${product.price}")
@@ -114,6 +115,26 @@ class InventoryManager:
                 self.save_inventory()
                 logger.info(f"Product {product.name} has been updated to new quantity:  {product.quantity} ")
                 return
+        logger.info(f"Product {product_name} not found.")
+
+    def update_category(self, product_name: str, new_category: str) -> None:
+        """Updates the category of a product in inventory.
+        
+        Args:
+            product_name: Name of product to update.
+            new_category: New category to assign.
+
+        Raises:
+            KeyError: If the product is not found in inventory.
+        """
+        # Iterate through inventory to find product
+        for product in self.inventory:
+            # Case-insensitive match
+            if product.name == product_name:
+                product.category = new_category
+                self.save_inventory()
+                logger.info(f"Product {product.name} has new Category: '{product.category}'.")
+                return
         logger.error(f"Product {product_name} not found.")
 
     def get_total_inventory_value(self) -> float:
@@ -134,3 +155,25 @@ class InventoryManager:
             list (str): Product names from inventory with quantities below threshold.
         """
         return [product.name for product in self.inventory if product.quantity < threshold]
+    
+    def category_search(self, category:str) -> List[Product]:
+        """ Searches for products in a specified category.
+
+        Args:
+            category (str): The category to search for.
+
+        Returns:
+            List[Product]: A list of products matching the category.
+        """
+        return [product for product in self.inventory if product.category.lower() == category.lower()]
+    
+    def generate_report(self) -> str:
+        """ Generate a report of total inventory value based on category.
+
+        Returns:
+            str: A formatted string showing the total value of products in each category.
+        """
+        report = {}
+        for product in self.inventory:
+            report[product.category] = report.get(product.category, 0) + product.get_value()
+        return "\n".join([f"{cat}: ${val:.2f}" for cat, val in sorted(report.items())])

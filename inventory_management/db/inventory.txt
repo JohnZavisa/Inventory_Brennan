@@ -1,6 +1,6 @@
-Telecaster, 499.99, 6
-Les Paul, 999.99, 7
-Stratocaster, 499.99, 8
-Jazzmaster, 1499.99, 1
-Gristlemaster, 1499.99, 2
-Triplecaster, 3333.99, 3
+Telecaster, 499.99, 10, Electric Guitar
+Stratocaster, 499.99, 8, Uncategorized
+Jazzmaster, 1499.99, 1, Uncategorized
+Gristlemaster, 1499.99, 2, Electric Guitar
+Triplecaster, 3333.99, 3, Electric Guitar
+Silver Sky, 1299.99, 6, Electric Guitar
